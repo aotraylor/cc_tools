@@ -1,6 +1,8 @@
 import cc_dat_utils
 import example_data
 import test_json_utils
+import cc_data
+import cc_json_utils
 import json
 
 #Part 1
@@ -39,15 +41,15 @@ import json
 
 
 #Part 2
-input_json_file = "data/test_data.json"
-with open(input_json_file, "r") as reader:
-    game_data = json.load(reader)
-
-print(game_data)
-testGameLibraryData = test_json_utils.make_game_library_from_json(game_data)
-
-print("Game list loaded from JSON:")
-print(testGameLibraryData)
+# input_json_file = "data/test_data.json"
+# with open(input_json_file, "r") as reader:
+#     game_data = json.load(reader)
+#
+# print(game_data)
+# testGameLibraryData = test_json_utils.make_game_library_from_json(game_data)
+#
+# print("Game list loaded from JSON:")
+# print(testGameLibraryData)
 
 ### Begin Add Code Here ###
 #Open the file specified by input_json_file
@@ -59,5 +61,18 @@ print(testGameLibraryData)
 
 #Part 3
 #Load your custom JSON file
+with open("data/atraylor_cc1.json", "r") as reader:
+    json_cc_data = json.load(reader)
+
 #Convert JSON data to cc_data
+cc_data_file = cc_json_utils.make_cc_data_file_from_json(json_cc_data)
+print(json_cc_data)
+
 #Save converted data to DAT file
+cc_dat_utils.write_cc_data_to_dat(cc_data_file, "data/atraylor_cc1.dat")
+dat_check = cc_dat_utils.make_cc_data_from_dat("data/atraylor_cc1.dat")
+print(dat_check)
+
+
+
+
