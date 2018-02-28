@@ -64,13 +64,16 @@ import json
 with open("data/atraylor_cc1.json", "r") as reader:
     json_cc_data = json.load(reader)
 
+# with open("data/atraylor_cc_levels.json", "r") as reader:
+#     json_cc_data = json.load(reader)
+
 #Convert JSON data to cc_data
 cc_data_file = cc_json_utils.make_cc_data_file_from_json(json_cc_data)
 print(json_cc_data)
 
 #Save converted data to DAT file
-cc_dat_utils.write_cc_data_to_dat(cc_data_file, "data/atraylor_cc1.dat")
-dat_check = cc_dat_utils.make_cc_data_from_dat("data/atraylor_cc1.dat")
+cc_dat_utils.write_cc_data_to_dat(cc_data_file, "data/atraylor_cc_levels.dat")
+dat_check = cc_dat_utils.make_cc_data_from_dat("data/atraylor_cc_levels.dat")
 print(dat_check)
 
 
